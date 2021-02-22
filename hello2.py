@@ -62,3 +62,8 @@ print(test.count("째"))
 
 #없으면 -1 을 리턴함
 
+a = ",".join('abcd')
+print(a)
+
+a = 1
+print(a)
