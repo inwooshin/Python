@@ -154,3 +154,4 @@ print(a.count(4))
 #맨뒤에 추가
 a.extend([1,2,3,4])
 print(a)
+
