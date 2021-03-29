@@ -5,7 +5,7 @@ x = list(map(lambda i: round(i), np.arange(-2.1,2.1,step = 0.1)))
 y = list(map(lambda i: round(i), np.arange(-2.1,2.1,step = 0.1)))
 
 mini = 0.000001
-weight1, weight2, thres = (0.5, 0.6, 0.55)
+weight1, weight2, thres = (0.17, 0.17, 0.3)
 
 font1 = {'family': 'serif',
       'color':  'black',
