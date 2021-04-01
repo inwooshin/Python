@@ -1,12 +1,13 @@
-import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+import numpy as np
 
 x = list(map(lambda i: round(i), np.arange(-10,10,step = 0.5)))
 y = list(map(lambda i: round(i), np.arange(-10,10,step = 0.5)))
 
 mini = 0.000001
-w1, w2, thres = (-1, 1, 8)
-n = 0.1
+w1, w2, thres = (1, -1, 8)
+n = 0.01
 t = [[0,1,1,1], [0,0,0,1]]
 xx = [[0,0], [0,1], [1,0], [1,1]]
 or_and = 0
@@ -20,6 +21,7 @@ font1 = {'family': 'serif',
 def perceptron(t):
     global w1, w2, thres, wcount
     check = 0 
+    error = 0
     for i in range(0,4):
         y = 0
         if(w1 * xx[i][0] + w2 * xx[i][1] > thres or \
@@ -31,7 +33,8 @@ def perceptron(t):
 
         w1 = w1 + (n * (t[i] - y) * xx[i][0])
         w2 = w2 + (n * (t[i] - y) * xx[i][1])
-    
+        error += 0.5 * (t[i] - y)
+
     if(check == 4): 
         plt.text(w1 - 0.7,w2 + 0.02,'{}'.format(wcount), fontdict = font1)
         return check
@@ -72,7 +75,7 @@ while check != 4:
     check = 0
     check = perceptron(t[or_and])
     count += 1
-    if count >= 1000:
+    if count >= 10000:
         plt.text(0, 0,'fault', fontdict = font1)
         break
 
