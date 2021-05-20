@@ -27,7 +27,20 @@ line.set_data(xdata, ydata)
 
 f.close()
 
-f = open("in_and_out.txt", "w")
+f = open("in_and_out.txt", "r")
+
+all = f.readlines()
+
+for i in all:
+    tmp = i.split()
+    if tmp[2] == '1':
+        plt.plot(float(tmp[0]), float(tmp[1]), "co", markersize = 6, visible = True)
+    else : 
+        plt.plot(float(tmp[0]), float(tmp[1]), "bo", markersize = 6, visible = True)
+
+f.close()
+
+f = open("in_and_out.txt", "a")
 
 def add_point(event):
     if event.inaxes != ax:
