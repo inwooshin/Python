@@ -6,7 +6,7 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Interactive Plot')
  
-ax.set(xlim=[0, 50], ylim=[0, 50])
+ax.set(xlim=[0, 2], ylim=[0, 2])
 ax.set_aspect('auto', adjustable='box')
  
 xdata = []
